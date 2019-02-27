@@ -1,6 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
+<%= render 'layouts/newtral_layout_head' %>
+
   <% set_meta_tags twitter: { :site => Settings.twitter_account} %>
   <%= display_meta_tags site: t('.site_title'), reverse: true %>
 
@@ -11,44 +10,31 @@
   <%= yield :header %>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link rel="apple-touch-icon" sizes="57x57" href="<%= asset_path('favicons/apple-touch-icon-57x57.png') %>">
-  <link rel="apple-touch-icon" sizes="60x60" href="<%= asset_path('favicons/apple-touch-icon-60x60.png') %>">
-  <link rel="apple-touch-icon" sizes="72x72" href="<%= asset_path('favicons/apple-touch-icon-72x72.png') %>">
-  <link rel="apple-touch-icon" sizes="76x76" href="<%= asset_path('favicons/apple-touch-icon-76x76.png') %>">
-  <link rel="apple-touch-icon" sizes="114x114" href="<%= asset_path('favicons/apple-touch-icon-114x114.png') %>">
-  <link rel="apple-touch-icon" sizes="120x120" href="<%= asset_path('favicons/apple-touch-icon-120x120.png') %>">
-  <link rel="apple-touch-icon" sizes="144x144" href="<%= asset_path('favicons/apple-touch-icon-144x144.png') %>">
-  <link rel="apple-touch-icon" sizes="152x152" href="<%= asset_path('favicons/apple-touch-icon-152x152.png') %>">
-  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path('favicons/apple-touch-icon-180x180.png') %>">
-  <link rel="icon" type="image/png" href="<%= asset_path('favicons/favicon-32x32.png') %>" sizes="32x32">
-  <link rel="icon" type="image/png" href="<%= asset_path('favicons/favicon-194x194.png') %>" sizes="194x194">
-  <link rel="icon" type="image/png" href="<%= asset_path('favicons/favicon-96x96.png') %>" sizes="96x96">
-  <link rel="icon" type="image/png" href="<%= asset_path('favicons/android-chrome-192x192.png') %>" sizes="192x192">
-  <link rel="icon" type="image/png" href="<%= asset_path('favicons/favicon-16x16.png') %>" sizes="16x16">
-  <link rel="manifest" href="<%= asset_path('favicons/manifest.json') %>">
-  <link rel="mask-icon" href="<%= asset_path('favicons/safari-pinned-tab.svg') %>" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="msapplication-TileImage" content="<%= asset_path('favicons/mstile-144x144.png') %>">
-  <meta name="theme-color" content="#ffffff">
-
   <%= render 'layouts/analytics_header' %>
 
   <script type="text/javascript">
     I18n.defaultLocale = "<%= I18n.default_locale %>";
     I18n.locale = "<%= I18n.locale %>";
   </script>
+
+<style>
+.gobierto_container header.global {
+  width: 25%;
+}
+.gobierto_container .main_content {
+  padding: 0;
+}
+
+/* pending to check if we apply globally to comparator */
+.year_switcher {
+  width: auto;
+}
+
+</style>
+
 </head>
 
 <body <%= data_attributes %>>
-
-<% unless logged_in? %>
-  <div class="top-claim">
-    <p>
-      <%= link_to t('.download_guide'), new_user_path(pro: true) %>
-      <span class="f_right"><%= link_to 'English', gobierto_budgets_en_path %></span>
-    </p>
-  </div>
-<% end %>
 
 <div class="gobierto_container">
 
@@ -110,27 +96,10 @@
 </div>
 
 <footer>
-  <div class="gobierto_ref">
-    <%= link_to image_tag('GobiertoFooter@2x.png', size: '401x18'), Settings.gobierto_host, target: 'blank' %>
+  <div class="gobierto_ref center" >
+    <p style="font-size: .75em; margin: 0 0 3em 0">Un producto de Gobierto <%= link_to image_tag('GobiertoFooter@2x.png', size: '401x18'), 'https://gobierto.es', target: '_blank', style: "vertical-align: middle; margin: 0 0 0 2em;" %></p>
+    <p style="font-size: .75em;"><%= link_to t('.methodology_and_sources'), gobierto_budgets_about_path(anchor: 'method') %></p>
   </div>
-
-  <menu>
-    <ul>
-      <li><%= link_to t('.about'), gobierto_budgets_about_path %></li>
-      <li><%= link_to t('.faq'), gobierto_budgets_faq_path %></li>
-      <li><%= link_to t('.methodology_and_sources'), gobierto_budgets_about_path(anchor: 'method') %></li>
-      <li><%= link_to t('.contact'), gobierto_budgets_about_path(anchor: 'contact') %></li>
-    </ul>
-
-    <ul class="legal">
-      <li><%= link_to t('.legal_warning'), gobierto_budgets_legal_legal_path %></li>
-      <li><%= link_to t('.privacy'), gobierto_budgets_legal_privacy_path %></li>
-      <li><%= link_to t('.cookies'), gobierto_budgets_legal_cookies_path %></li>
-    </ul>
-  </menu>
-
-  <a href="https://mixpanel.com/f/partner"><img src="//cdn.mxpnl.com/site_media/images/partner/badge_light.png" alt="Mobile Analytics" /></a>
-
 </footer>
 
 
@@ -143,5 +112,4 @@
 
 <%= render 'layouts/analytics_footer' %>
 
-</body>
-</html>
+<%= render 'layouts/newtral_layout_footer' %>

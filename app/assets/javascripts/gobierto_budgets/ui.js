@@ -121,9 +121,9 @@ $(document).on('turbolinks:load', function() {
 
   // adjust height of sidebar
   // if($(window).width() > 740) {
-  if(responsive()) {
-    $('header.global').css('height', $(document).height());
-  };
+  // if(responsive()) {
+  //   $('header.global').css('height', $(document).height());
+  // };
 
   $('.switcher').hover(function(e) {
     e.preventDefault();

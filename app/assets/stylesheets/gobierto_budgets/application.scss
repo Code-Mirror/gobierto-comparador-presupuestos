@@ -71,10 +71,11 @@ footer {
  * Layout
  *
  */
-.container {
+.gobierto_container {
   width: 100%;
   max-width: 1800px;
   margin: auto;
+  display: flex;
 }
 .resp {
   @include screen(740, 2000) {
@@ -86,52 +87,53 @@ footer {
     display: none;
   }
 }
-header.global {
-  background: $color_1_soft;
-  width: 190px;
-  float: left;
-  padding: 0;
-  margin: 0;
+.gobierto_container {
+  header.global {
+    background: $color_1_soft;
+    padding: 0;
+    margin: 0;
+    flex-basis: 16%;
 
-  @include screen(740) {
-    .logo {
-      margin: 1em;
-      a {
-        background: image-url("LogoGobierto.png") top left no-repeat;
-        height: 30px;
-        width: 100%;
-        background-size: auto 100%;
-        display: block;
-        img {
-          margin-left: -3000px;
+    @include screen(740) {
+      .logo {
+        margin: 1em;
+        a {
+          background: image-url("LogoGobierto.png") top left no-repeat;
+          height: 30px;
+          width: 100%;
+          background-size: auto 100%;
+          display: block;
+          img {
+            margin-left: -3000px;
+          }
+        }
+
+      }
+      .ham {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        a {
+          font-size: 1.35em;
         }
       }
-
+      // img,
+      // menu,
+      // .links_list,
+      //  {
+      //   display: none;
+      // }
     }
-    .ham {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      a {
-        font-size: 1.35em;
-      }
-    }
-    // img,
-    // menu,
-    // .links_list,
-    //  {
-    //   display: none;
-    // }
   }
-}
-.main_content {
-  float: right;
-  width: calc(100% - 220px - 1.75em);
-  margin: 0 1.75em 0 0;
-  padding: 2em 0 0 0;
-  @include screen(740) {
-    margin: 0;
-    padding: 0;
+  .main_content {
+    flex-grow: 1;
+    flex-basis: 84%;
+    margin: 0 0 0 1.75em;
+    padding: 2em 0 0 0;
+    @include screen(740) {
+      margin: 0;
+      padding: 0;
+    }
   }
 }
 
@@ -2843,7 +2845,7 @@ menu.sections {
     height: 100px;
     background-color: $color_3_soft;
     margin-bottom: 25px;
-    padding: 20px 20px 0px;
+    padding: 10px;
     font-size: .85em;
     font-weight: 200;
 
@@ -2851,14 +2853,13 @@ menu.sections {
       width: 100%;
       margin: 0;
       padding: 0;
+      display: flex;
     }
 
     li {
       list-style-type: none;
       display:inline-block;
-      width: 18%;
-      padding-right: 3%;
-      padding-left: 3%;
+      padding: 0 4% 0 1%;
       vertical-align: top;
       span {
         font-weight: 400;
