@@ -95,6 +95,8 @@ footer {
     flex-basis: 16%;
 
     @include screen(740) {
+      display: none;
+
       .logo {
         margin: 1em;
         a {
@@ -117,12 +119,6 @@ footer {
           font-size: 1.35em;
         }
       }
-      // img,
-      // menu,
-      // .links_list,
-      //  {
-      //   display: none;
-      // }
     }
   }
   .main_content {
@@ -1011,14 +1007,28 @@ header.sub {
   .main {
     width: 65%;
     float: left;
+
+    @include screen(740) {
+      width: initial;
+      float: none;
+    }
   }
   .act {
     width: 32%;
     float: right;
+
+    @include screen(740) {
+      width: initial;
+      float: none;
+    }
   }
   .cont {
     background: $color_3_soft;
     padding: 2.5em 3em 1.75em;
+
+    @include screen(740) {
+      padding: 1em;
+    }
   }
   header {
     color: #666;
@@ -1030,11 +1040,16 @@ header.sub {
     }
   }
   .main_metrics {
+    display: flex;
     .metric {
       background: #FFF;
       margin-right: 2.2%;
       width: 30%;
       min-width: 165px;
+
+      @include screen(740) {
+        margin-right: 0;
+      }
     }
     .metric:last-child {
       float: left;
@@ -1081,6 +1096,10 @@ header.sub {
     width: 390px;
     z-index: 500;
     padding-top: .5em;
+  }
+
+  @include screen(740) {
+    display: none;
   }
 }
 @include screen(740) {
@@ -1263,15 +1282,14 @@ header.sub {
 .main_metrics {
   margin: 1em 0;
   display: flex;
-  justify-content: stretch;
+  flex-wrap: wrap;
 
   .metric {
     position: relative;
     box-sizing: border-box;
     background: $color_1_soft;
     padding: .5em .7em .6em .7em;
-    flex: 1;
-    float: left;
+    flex-grow: 1;
     margin: 0 1.2% 0 0;
     min-height: 66px;
     @include transition;
@@ -1303,21 +1321,23 @@ header.sub {
   }
   @include screen(501, 740) {
     .metric {
-      width: 24%;
-      margin: 0 1.25% 3% 0;
+      margin: 0 1% 1% 0;
+      flex-basis: 32%;
     }
-    .metric:nth-last-child(2) {
-      float: right;
-      margin: 0;
+    .metric:nth-child(3n) {
+      margin-right: 0;
     }
   }
   @include screen(500) {
     .metric {
-      width: 50%;
-      margin: 0;
+      margin: 0 1% 1% 0;
+      min-width: 49%;
     }
     .metric.selected::after {
       border: 0;
+    }
+    .metric:nth-child(2n) {
+      margin-right: 0;
     }
   }
   @include screen(740) {
@@ -1528,6 +1548,7 @@ a.list_view_more {
     border: 1px solid $separator;
   }
   table {
+    width: 100%;
     margin: 0 0 2em 0;
     td:not(:last-child) {
       font-size: 1.1em;
