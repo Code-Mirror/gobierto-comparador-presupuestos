@@ -1,54 +1,5 @@
 <%= render 'layouts/newtral_layout_head' %>
 
-  <% set_meta_tags twitter: { :site => Settings.twitter_account} %>
-  <%= display_meta_tags site: t('.site_title'), reverse: true %>
-
-  <%= stylesheet_link_tag    'gobierto_budgets/application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'gobierto_budgets/application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-
-  <%= yield :header %>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <%= render 'layouts/analytics_header' %>
-
-  <script type="text/javascript">
-    I18n.defaultLocale = "<%= I18n.default_locale %>";
-    I18n.locale = "<%= I18n.locale %>";
-  </script>
-
-<style>
-.gobierto_container header.global {
-  width: 25%;
-}
-.gobierto_container .main_content {
-  padding: 0;
-}
-.sticky-wrapper {
-  visibility: initial;
-}
-.gobierto_container header.global .ham {
-  opacity: .5;
-}
-
-.wrapper-boxed {
-  overflow: initial;
-}
-
-/* pending to check if we apply globally to comparator */
-.year_switcher {
-  width: auto;
-}
-header.global {
-  @include screen(740) {
-    display: none;
-  }
-}
-
-</style>
-
-</head>
-
 <body <%= data_attributes %>>
 
 <div class="gobierto_container">

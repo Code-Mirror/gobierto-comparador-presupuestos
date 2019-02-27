@@ -2,8 +2,59 @@
 <html lang="es">
 
 <head>
+    <!-- Gobierto -->
+    <% set_meta_tags twitter: { :site => Settings.twitter_account} %>
+    <%= display_meta_tags site: t('.site_title'), reverse: true %>
+
+    <%= stylesheet_link_tag    'gobierto_budgets/application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'gobierto_budgets/application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <%= yield :header %>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <%= render 'layouts/analytics_header' %>
+
+    <script type="text/javascript">
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+    </script>
+
+  <style>
+  .gobierto_container header.global {
+    width: 25%;
+  }
+  .gobierto_container .main_content {
+    padding: 0;
+  }
+  .sticky-wrapper {
+    visibility: initial;
+  }
+  .gobierto_container header.global .ham {
+    opacity: .5;
+  }
+
+  .wrapper-boxed {
+    overflow: initial;
+  }
+
+  /* pending to check if we apply globally to comparator */
+  .year_switcher {
+    width: auto;
+  }
+  header.global {
+    @include screen(740) {
+      display: none;
+    }
+  }
+
+  </style>
+  <!-- Gobierto -->
+
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-125111450-1"></script>
     <script>
+        var route = {};
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
@@ -35,7 +86,6 @@
     <link rel="alternate" type="application/atom+xml" title="Newtral Atom Feed" href="https://newtral.es/feed/atom/" />
     <link rel="pingback" href="https://newtral.es/xmlrpc.php" />
     <!--[if lt IE 9]> <script src="https://newtral.es/wp-content/themes/soledad/js/html5.js"></script> <![endif]-->
-    <title>Quiénes somos &#8211; Newtral</title>
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//www.googletagmanager.com' />
     <link rel='dns-prefetch' href='//static.addtoany.com' />
@@ -1830,9 +1880,11 @@
             }
         </style>
     </noscript>
+
 </head>
 
-<body class="page-template page-template-page-vc-sidebar page-template-page-vc-sidebar-php page page-id-1583 cookies-set cookies-accepted wpb-js-composer js-comp-ver-5.7 vc_responsive">
+<body class="page-template page-template-page-vc-sidebar page-template-page-vc-sidebar-php page page-id-1583 cookies-set cookies-accepted wpb-js-composer js-comp-ver-5.7 vc_responsive" <%= data_attributes %>>
+
     <a id="close-sidebar-nav" class="header-9"><i class="fa fa-close"></i></a>
     <nav id="sidebar-nav" class="header-9">
         <div id="sidebar-nav-logo">
@@ -1924,8 +1976,6 @@
                     </div>
             </nav>
         </header>
-
-
 
 
 
