@@ -124,7 +124,7 @@ footer {
   .main_content {
     flex-grow: 1;
     flex-basis: 84%;
-    margin: 0 0 0 1.75em;
+    margin: 0 1.75em;
     padding: 2em 0 0 0;
     @include screen(740) {
       margin: 0;
