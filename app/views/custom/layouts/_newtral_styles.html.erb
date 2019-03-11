@@ -1,0 +1,101 @@
+<style>
+/**** colors ****
+
+brand             rgb(26, 224, 172); #1ae0ac;
+brand-soft-3      rgb(26, 224, 172, 0.3);
+brand-soft-1      rgb(26, 224, 172, 0.1);
+
+brand-link        rgb(110, 180, 140); #6eb48c;
+
+**/
+
+.gobierto_container header.global,
+.main_metrics .metric,
+.ranking_card {
+  background: rgb(26, 224, 172, 0.1);
+}
+
+.main_metrics .metric.selected,
+.main_metrics .metric.selected:hover,
+header.global menu ul li a,
+.ranking_card:hover {
+  background: rgb(26, 224, 172, 0.3);
+  color:
+}
+
+header.global menu ul li a:hover,
+header.global menu ul li a.selected {
+  background: rgb(26, 224, 172, 0.5);
+}
+
+header.place .share_links a,
+input[type="submit"],
+.button,
+.small_button,
+.rankings .noUi-connect {
+  background: rgb(26, 224, 172);
+}
+
+input[type="submit"]:hover,
+.button:hover,
+.small_button:hover {
+  background: rgb(26, 224, 172, 0.8);
+}
+
+.pre_home h1 img {
+  margin-top: -9px;
+  margin-right: 10px;
+}
+
+
+/**** typography ****/
+body {
+  font-family: Helvetica,Lato,Arial,sans-serif;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Raleway',sans-serif;
+}
+a {
+  color: rgb(26, 224, 172);
+}
+
+.logo img {
+  width: 80%;
+  max-width: 120px;
+}
+.logo span.sub-title {
+  opacity: 0.6;
+}
+
+
+/** layout IF NEWTRAL LAYOUT PRESENT
+.gobierto_container header.global {
+  width: 25%;
+}
+.gobierto_container .main_content {
+  padding: 0;
+}
+.sticky-wrapper {
+  visibility: initial;
+}
+.gobierto_container header.global .ham {
+  opacity: .5;
+}
+.wrapper-boxed {
+  overflow: initial;
+}
+**/
+
+
+/* pending to check if we apply globally to comparator */
+.year_switcher {
+  width: auto;
+}
+.gobierto_container header.global {
+  @include screen(740) {
+    display: none;
+  }
+}
+
+/* base color: #1ae0ac */
+</style>
