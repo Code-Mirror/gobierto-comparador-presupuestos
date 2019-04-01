@@ -6,7 +6,13 @@ module GobiertoBudgets
 
     include GobiertoBudgets::ApplicationHelper
 
+    MAX_FEATURED_BUDGET_LINE_YEAR_FALLBACK = 3
+
     private
+
+    def featured_budget_line?
+      @code.present?
+    end
 
     def load_featured_budget_line(params = {})
       @area_name = "functional"
@@ -15,13 +21,16 @@ module GobiertoBudgets
       results = featured_budget_line_candidates
 
       if params[:allow_year_fallback]
-        until results.any? || (@year < Date.today.year - 2)
+        until results.any? || (@year < Date.today.year - MAX_FEATURED_BUDGET_LINE_YEAR_FALLBACK)
           @year -= 1
           results = featured_budget_line_candidates
         end
       end
 
-      @code = results.sample["code"] if results.any?
+      @code = if results.any?
+                Rollbar.warning("No featured_budget_line candidates for #{@current_organization.slug}")
+                results.sample["code"]
+              end
     end
 
     def featured_budget_line_candidates
